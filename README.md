@@ -12,9 +12,11 @@ Q is a finite set of states.
 
 ∑ is a finite set of symbols called the alphabet.
 
-δ is the transition function where δ: $$Q × ∑ → Q$$
+δ is the transition function where δ: Q × ∑ → Q
 
-$$q_0$$ is the initial state from where any input is processed ($$q_0 ∈ Q$$).
+q_0 is the initial state from where any input is processed (q_0 ∈ Q).
 
 F is a set of final state/states of Q (F ⊆ Q).
+
+
 
