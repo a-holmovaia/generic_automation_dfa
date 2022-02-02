@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/zettel10.iml" filepath="$PROJECT_DIR$/zettel10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/generic_automation.iml" filepath="$PROJECT_DIR$/generic_automation.iml" />
     </modules>
   </component>
 </project>

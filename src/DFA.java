@@ -68,6 +68,12 @@ public class DFA extends GenericAutomation {
 
     }
 
+    /**
+     * takes a word, makes transition according to the path defined in the word.
+     * @param word
+     * @return If the final state is accepting, the word'll be accepted
+     * @throws SymbolNotInAlphabetException
+     */
     public String acceptWord(String word) throws SymbolNotInAlphabetException {
         char[] symbols = word.toCharArray();
         for (char symbol : symbols) {
