@@ -1,0 +1,18 @@
+Hinweis:    Ab dieser Woche findet ihr eine weitere Feedback-Datei "generated_feedback" im Projekt.
+            Das ist eine von einer Software der AG des Professors automatisch erstelltes Feedback zu eurer Abgabe.
+            Wir wurden angehalten, das diesmal zu verwenden/zu testen. Könnt (!) ihr euch gerne auch mal anschauen.
+
+Insgesamt 15.5/16 bzw. 15.5/12 wegen 4 Bonuspunkten.
+
+a) 1.5/1.5 Anmerkung State.status
+b) 1/1
+c) 1/1 Anmerkung
+d) 1/1
+e) 2/2
+f) 1/1 Anmerkung
+g) 2/2
+h) 0.5/0.5 Anm
+i) 1/1
+j) 0.5/1
+k) 2/2 Anmerkung
+l) 2/2
