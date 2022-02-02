@@ -53,18 +53,31 @@ public class DFA extends GenericAutomation {
      * @param symbol
      * @return ID of the current state
      */
-    public String delta(Character symbol) throws SymbolNotInAlphabetException {
+    private void delta(Character symbol) throws SymbolNotInAlphabetException {
         if (!this.alphabet.contains(symbol)) {
+            this.reset();
             throw new SymbolNotInAlphabetException();
         }
         try {
             Transition transition = Objects.requireNonNull(findTransition(this.current, symbol));
             this.current = transition.ID2;
-            return this.current;
         } catch (NullPointerException e) {
+            this.reset();
             throw new IllegalStateException("Unable to carry out a transition: \n current state: " + this.current );
         }
 
+    }
+
+    public String acceptWord(String word) throws SymbolNotInAlphabetException {
+        char[] symbols = word.toCharArray();
+        for (char symbol : symbols) {
+            delta(symbol);
+        }
+        if (this.isAccepting()) {
+            return "The word is accepted. The current state: " + this.current;
+        } else {
+            return "The word can't be accepted. Please, check the prerequisites of the dfa. The current state: " + this.current;
+        }
     }
 
     /**

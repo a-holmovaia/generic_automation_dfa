@@ -43,60 +43,30 @@ class DFATest {
         Assertions.assertEquals(st2, dfa.findState("smile"));
     }
 
+
     @Test
     void testDFA1() throws SymbolNotInAlphabetException {
-        dfa.delta('?');
-        Assertions.assertEquals("smile", dfa.getCurrent());
-        Assertions.assertFalse(dfa.isAccepting());
+        Assertions.assertEquals("The word can't be accepted. Please, check the prerequisites of the dfa. The current state: speak", dfa.acceptWord("?!"));
     }
 
     @Test
     void testDFA2() throws SymbolNotInAlphabetException {
-        dfa.delta('?');
-        dfa.delta('!');
-        Assertions.assertEquals("speak", dfa.getCurrent());
-        Assertions.assertFalse(dfa.isAccepting());
+        Assertions.assertEquals("The word can't be accepted. Please, check the prerequisites of the dfa. The current state: go home", dfa.acceptWord("?!?"));
     }
 
     @Test
     void testDFA3() throws SymbolNotInAlphabetException {
-        dfa.delta('?');
-        dfa.delta('!');
-        dfa.delta('?');
-        Assertions.assertEquals("go home", dfa.getCurrent());
-        Assertions.assertFalse(dfa.isAccepting());
+        Assertions.assertEquals("The word is accepted. The current state: sleep", dfa.acceptWord("?!?!"));
     }
 
     @Test
     void testDFA4() throws SymbolNotInAlphabetException {
-        dfa.delta('?');
-        dfa.delta('!');
-        dfa.delta('?');
-        dfa.delta('!');
-        Assertions.assertTrue(dfa.isAccepting());
+        Assertions.assertEquals("The word can't be accepted. Please, check the prerequisites of the dfa. The current state: eat", dfa.acceptWord("??"));
     }
 
     @Test
     void testDFA5() throws SymbolNotInAlphabetException {
-        dfa.delta('?');
-        dfa.delta('?');
-        Assertions.assertEquals("eat", dfa.getCurrent());
-        Assertions.assertFalse(dfa.isAccepting());
-    }
-
-    @Test
-    void testDFA6() throws SymbolNotInAlphabetException {
-        dfa.delta('?');
-        dfa.delta('?');
-        dfa.delta('!');
-        dfa.delta('?');
-        dfa.delta('!');
-        dfa.delta('?');
-        dfa.delta('!');
-        dfa.delta('!');
-        dfa.delta('?');
-        dfa.delta('!');
-        Assertions.assertTrue(dfa.isAccepting());
+        Assertions.assertEquals("The word is accepted. The current state: sleep", dfa.acceptWord("??!?!?!!?!"));
     }
 
     @Test
@@ -116,9 +86,7 @@ class DFATest {
 
     @Test
     void testIllegalSymbol2() throws SymbolNotInAlphabetException {
-        dfa.delta('?');
-        dfa.delta('?');
-        Assertions.assertThrows(SymbolNotInAlphabetException.class, ()->{dfa.delta('h');});
+        Assertions.assertThrows(SymbolNotInAlphabetException.class, ()->{dfa.acceptWord("??h");});
     }
 
     @Test
@@ -128,10 +96,8 @@ class DFATest {
 
     @Test
     void testTransitionNotPossible() throws SymbolNotInAlphabetException {
-        dfa.delta('?');
-        dfa.delta('!');
         Assertions.assertThrows(IllegalStateException.class,
-                ()->{dfa.delta('!');});
+                ()->{dfa.acceptWord("??!?");});
     }
 }
 
